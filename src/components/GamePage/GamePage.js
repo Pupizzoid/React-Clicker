@@ -138,7 +138,7 @@ const GamePage = ({
 			<div className={classes.boxHalfWidth}>
 				<InputLabel htmlFor="time-select">Choose a time</InputLabel>
         <Select
-          value={userData.leftSeconds}
+          value={userData.seconds}
 					onChange={handleChangeSelect}
 					labelId='time-select'
 					name='time'
