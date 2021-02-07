@@ -76,8 +76,9 @@ const app = (state = initialState, { type, payload }) => {
 				},
 			});
 		case UPDATE_GAME_RESULTS:
+			// eslint-disable-next-line no-case-declarations
 			const { userName, clicks, seconds } = state.userData;
-			saveResults({userName, clicks, seconds});
+			saveResults({ userName, clicks, seconds });
 			return ({
 				...state,
 				gameResults: getResults()
@@ -85,6 +86,6 @@ const app = (state = initialState, { type, payload }) => {
 		default:
 			return state;
 	}
-}
+};
 
 export default app;

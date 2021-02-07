@@ -20,30 +20,30 @@ export const setCountClicksAction = (data) => ({
 	payload: {
 		data
 	}
-})
+});
 
 export const setCountSecondsAction = (data) => ({
 	type: SET_COUNT_SECONDS,
 	payload: {
 		data
 	}
-})
+});
 
 export const setCountLeftSecondsAction = (data) => ({
 	type: SET_COUNT_LEFT_SECONDS,
 	payload: {
 		data
 	}
-})
+});
 
 export const startTimerAction = () => ({
 	type: START_TIMER
-})
+});
 
 export const resetTimerAction = () => ({
 	type: RESET_TIMER
-})
+});
 
 export const updateGameResultsAction = () => ({
 	type: UPDATE_GAME_RESULTS
-})
+});

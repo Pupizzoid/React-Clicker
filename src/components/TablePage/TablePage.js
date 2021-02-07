@@ -10,15 +10,15 @@ import Paper from '@material-ui/core/Paper';
 import { connect } from 'react-redux';
 
 const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
+	table: {
+		minWidth: 650,
+	},
 });
 
 
 const TablePage = ({ appState }) => {
 	const { gameResults } = appState;
-	const filteredResults = gameResults.map(item => {
+	const filteredResults = gameResults.map((item) => {
 		item.clicksPerSeconds = item.clicks / item.seconds;
 		return item;
 	});
@@ -26,38 +26,38 @@ const TablePage = ({ appState }) => {
 	const classes = useStyles();
 	console.log(filteredResults);
 
-  return (
-    <TableContainer component={Paper}>
-      <Table className={classes.table} size="small" aria-label="a dense table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell align="right">Clicks</TableCell>
-            <TableCell align="right">Games time</TableCell>
-            <TableCell align="right">Clicks per second</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {filteredResults.map((user) => (
-            <TableRow key={Math.random(Date.now().toString())}>
-              <TableCell component="th" scope="row">
-                {user.userName}
-              </TableCell>
-              <TableCell align="right">{user.clicks}</TableCell>
-              <TableCell align="right">{user.seconds}</TableCell>
-              <TableCell align="right">{user.clicksPerSeconds.toFixed(2)}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  );
-}
+	return (
+		<TableContainer component={Paper}>
+			<Table className={classes.table} size="small" aria-label="a dense table">
+				<TableHead>
+					<TableRow>
+						<TableCell>Name</TableCell>
+						<TableCell align="right">Clicks</TableCell>
+						<TableCell align="right">Games time</TableCell>
+						<TableCell align="right">Clicks per second</TableCell>
+					</TableRow>
+				</TableHead>
+				<TableBody>
+					{filteredResults.map((user) => (
+						<TableRow key={Math.random(Date.now().toString())}>
+							<TableCell component="th" scope="row">
+								{user.userName}
+							</TableCell>
+							<TableCell align="right">{user.clicks}</TableCell>
+							<TableCell align="right">{user.seconds}</TableCell>
+							<TableCell align="right">{user.clicksPerSeconds.toFixed(2)}</TableCell>
+						</TableRow>
+					))}
+				</TableBody>
+			</Table>
+		</TableContainer>
+	);
+};
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
 	return {
 		appState: state.app,
-	}
-}
+	};
+};
 
 export default connect(mapStateToProps)(TablePage);

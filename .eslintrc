@@ -1,0 +1,42 @@
+{
+  "plugins": [
+    "react"
+	],
+	"env": {
+    "node": true,
+    "browser": true,
+    "es6": true
+	},
+	"parserOptions": {
+		"ecmaVersion": 2019,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "arrowFunctions": true,
+			"defaultParams": true,
+			"jsx": true
+		}
+	},
+	"extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+	],
+	"rules": {
+		"eqeqeq": "off",
+		"curly": "error",
+		"quotes": ["error", "single", { "allowTemplateLiterals": true }],
+		"max-len": ["error", {"code": 150, "ignoreComments": true}],
+		"no-unused-vars": ["error", {"vars": "local"}],
+		"block-spacing": "error",
+		"brace-style": "error",
+		"linebreak-style": ["error", "windows"],
+		"object-curly-spacing": ["error", "always"],
+		"camelcase": ["error", {"properties": "never"}],
+		"arrow-parens": ["error", "always"],
+		"semi": ["error", "always", { "omitLastInOneLineBlock": true}] ,
+		"spaced-comment": ["error", "always", { "markers": ["/"] }] ,
+		"no-restricted-imports": ["error", { "paths": ["import1", "import2"] }],
+		"react/react-in-jsx-scope": "off",
+	 "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+	 "react/prop-types": 0
+	}
+}

@@ -1,17 +1,14 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { TextField, Box, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
-import {
-	addUserNameAction,
-} from '../../redux/actions';
 
-const useStyles = makeStyles((theme) => ({
-  form: {
+const useStyles = makeStyles(() => ({
+	form: {
 		width: '400px',
-    padding: '20px',
-    margin: 'auto',
-    boxShadow: '0 2px 4px -2px rgb(0 0 0 / 24%), 0 4px 24px -2px rgb(0 0 0 / 20%)',
+		padding: '20px',
+		margin: 'auto',
+		boxShadow: '0 2px 4px -2px rgb(0 0 0 / 24%), 0 4px 24px -2px rgb(0 0 0 / 20%)',
 		borderRadius: '5px',
 	},
 	btn: {
@@ -27,14 +24,14 @@ const WelcomePage = () => {
 
 	const handleChangeInput = (e) => {
 		setUserName(e.target.value);
-	}
+	};
 
 	const handleSaveData = () => {
 		history.push({
 			pathname: '/game',
 			search: `?name=${userName}`
-		})
-	}
+		});
+	};
 
 	return (
 		<Box className={classes.form}>
@@ -59,7 +56,7 @@ const WelcomePage = () => {
 				Go to game
 			</Button>
 		</Box>
-	)
-}
+	);
+};
 
 export default WelcomePage;

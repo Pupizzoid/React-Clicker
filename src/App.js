@@ -1,13 +1,11 @@
-import logo from './logo.svg';
 import './App.scss';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import WelcomePage from './components/WelcomePage/WelcomePage';
 import GamePage from './components/GamePage/GamePage';
 import TablePage from './components/TablePage/TablePage';
 import { makeStyles } from '@material-ui/core/styles';
-import { useHistory } from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
 	app: {
 		padding: '50px 0 0 0',
 		'& h1': {
@@ -30,6 +28,6 @@ const App = () => {
 				</Switch>
 		</div>
   );
-}
+};
 
 export default App;

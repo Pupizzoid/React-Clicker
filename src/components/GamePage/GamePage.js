@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Button, InputLabel, Select, MenuItem, ButtonGroup } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from 'react-router-dom';
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
 
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
-}
+};
 
 const GamePage = ({
 	setCountClicks,
@@ -76,12 +76,12 @@ const GamePage = ({
 
 	const handleStart = () => {
 		startTimer();
-  }
+  };
 
 	const handleReset = () => {
 		resetTimer();
 		setMessage('');
-	}
+	};
 
 	useEffect(() => {
 		addUserName(query.get('name'));
@@ -99,26 +99,26 @@ const GamePage = ({
 		}
 		return function cleanup () {
 			clearInterval(interval);
-		 }
+		};
   }, [userData.isActive, userData.leftSeconds]);
 
 	const options = [5, 10, 15];
-	const optionList = options.map(option => {
-		return <MenuItem key={option} value={option}>{option} sec</MenuItem>
-	})
+	const optionList = options.map((option) => {
+		return <MenuItem key={option} value={option}>{option} sec</MenuItem>;
+	});
 	
 	const handleChangeSelect = (e) => {
 		setCountSeconds(e.target.value);
-	}
+	};
 
 	const handleCountClick = () => {
 		setCountClicks(userData.clicks + 1);
-	}
+	};
 
 	const handleChangePath = (path) => {
 		history.push(path);
 		resetTimer();
-	}
+	};
 
 	return (
 		<Box className={classes.gameBox}>
@@ -163,25 +163,25 @@ const GamePage = ({
 				</ButtonGroup>
 			</div>
 		</Box>
-	)
-}
+	);
+};
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
 	return {
 		appState: state.app,
-	}
-}
+	};
+};
 
 const mapDispatchToProps = (dispatch) => {
 	return {
 		setCountClicks: (data) => {
-			dispatch(setCountClicksAction(data))
+			dispatch(setCountClicksAction(data));
 		},
 		setCountSeconds: (data) => {
-			dispatch(setCountSecondsAction(data))
+			dispatch(setCountSecondsAction(data));
 		},
 		setCountLeftSeconds: (data) => {
-			dispatch(setCountLeftSecondsAction(data))
+			dispatch(setCountLeftSecondsAction(data));
 		},
 		startTimer: () => {
 			dispatch(startTimerAction());
@@ -195,7 +195,7 @@ const mapDispatchToProps = (dispatch) => {
 		addUserName: (data) => {
 			dispatch(addUserNameAction(data));
 		},
-	}
-}
+	};
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(GamePage);
