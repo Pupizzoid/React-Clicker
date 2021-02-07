@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => ({
 		'& h1': {
 			textAlign: 'center'
 		}
-  },
+	},
 }));
 
 const App = () => {
@@ -27,7 +27,7 @@ const App = () => {
 				<Redirect to="/" />
 				</Switch>
 		</div>
-  );
+	);
 };
 
 export default App;

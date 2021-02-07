@@ -15,11 +15,11 @@ import {
 } from '../../redux/actions';
 
 const useStyles = makeStyles((theme) => ({
-  gameBox: {
+	gameBox: {
 		width: '400px',
-    padding: '20px',
-    margin: 'auto',
-    boxShadow: '0 2px 4px -2px rgb(0 0 0 / 24%), 0 4px 24px -2px rgb(0 0 0 / 20%)',
+		padding: '20px',
+		margin: 'auto',
+		boxShadow: '0 2px 4px -2px rgb(0 0 0 / 24%), 0 4px 24px -2px rgb(0 0 0 / 20%)',
 		borderRadius: '5px',
 		display: 'flex',
 		flexWrap: 'wrap',
@@ -37,8 +37,8 @@ const useStyles = makeStyles((theme) => ({
 	},
 	btnClick: {
 		width: '150px',
-    height: '150px',
-    borderRadius: '50%',
+		height: '150px',
+		borderRadius: '50%',
 	},
 	boxAction: {
 		width: '100%',
@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const useQuery = () => {
-  return new URLSearchParams(useLocation().search);
+	return new URLSearchParams(useLocation().search);
 };
 
 const GamePage = ({
@@ -76,7 +76,7 @@ const GamePage = ({
 
 	const handleStart = () => {
 		startTimer();
-  };
+	};
 
 	const handleReset = () => {
 		resetTimer();
@@ -100,7 +100,7 @@ const GamePage = ({
 		return function cleanup () {
 			clearInterval(interval);
 		};
-  }, [userData.isActive, userData.leftSeconds]);
+	}, [userData.isActive, userData.leftSeconds]);
 
 	const options = [5, 10, 15];
 	const optionList = options.map((option) => {
@@ -137,15 +137,15 @@ const GamePage = ({
 			</div>
 			<div className={classes.boxHalfWidth}>
 				<InputLabel htmlFor="time-select">Choose a time</InputLabel>
-        <Select
-          value={userData.seconds}
+				<Select
+					value={userData.seconds}
 					onChange={handleChangeSelect}
 					labelId='time-select'
 					name='time'
 					fullWidth
 					disabled={userData.isActive}
-        >
-        {optionList}
+				>
+				{optionList}
 				</Select>
 				<p>Timer: { userData.leftSeconds}</p>
 				<p>Count of clicks: {userData.clicks}</p>
